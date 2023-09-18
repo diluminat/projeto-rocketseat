@@ -9,7 +9,7 @@
     --bg-url: url(./assets/bg-mobile.jpg);
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.1);
-    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(255, 255, 255, 0.09);
     --social-color-hover: rgba(255, 255, 255, 0.2);
     --img-switch: url(./assets/moon-stars.svg);
     --img-profile: url(./assets/avatar.jpg)
@@ -21,7 +21,7 @@
     --bg-url: url(./assets/bg-mobile-light.jpg);
     --stroke-color: rgba(0, 0, 0, 0.5);
     --stroke-bg-color: rgba(0, 0, 0, 0.1);
-    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --surface-color-hover: rgba(0, 0, 0, 0.09);
     --social-color-hover: rgba(0, 0, 0, 0.1);
     --img-switch: url(./assets/sun.svg);
     --img-profile: url(./assets/avatarlight.jpg)
@@ -87,11 +87,15 @@ body * {
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    animation: deslizar-dentro 0.5s;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: deslizar 0.5s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--surface-color-hover)
 }
 
 #switch span {
@@ -158,7 +162,7 @@ footer {
     text-align: center;
     font-size: 14px;
 }
-
+/* media queires*/
 @media (min-width: 700px) {
     :root {
        --bg-url: url(./assets/bg-desktop.jpg);
@@ -166,5 +170,26 @@ footer {
 
     .light {
         --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+
+/* animação */
+@keyframes deslizar {
+    from {
+        left: 0;
+    }
+
+    to {
+       left: 50% 
+    }
+}
+
+@keyframes deslizar-dentro {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
     }
 }
